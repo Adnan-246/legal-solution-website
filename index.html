@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Manrope:wght@500&family=Poppins:wght@500&display=swap" rel="stylesheet">
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" /> -->
 
     <!-- tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,7 +41,38 @@
               <img src="images/logo2.png" class="h-8 md:h-12" alt="">
           </a>
           <div class="flex md:order-2 space-x-3 md:space-x-0">
-              <button type="button" class="text-white bg-button font-medium rounded-lg text-md px-4 md:py-5 text-center">Free Consultation</button>
+              <!-- button modal -->
+              <div class="block space-y-4 md:flex md:space-y-0 md:space-x-4">
+                <!-- Modal toggle -->
+                <button class="text-white bg-button font-medium rounded-lg text-md px-4 py-2 md:py-5 text-center" onclick="toggleModal()">Free Consultation</button>
+              </div>
+              <!-- Main modal -->
+              <div class="fixed z-50 overflow-y-auto top-0 w-full left-0 hidden" id="modal">
+                <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                  <div class="fixed inset-0 transition-opacity">
+                    <div class="absolute inset-0 bg-gray-900 opacity-75">
+                  </div>
+                  <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+                  <div class="inline-block align-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                    <div>
+                      <div class="bg-button">
+                        <h2 class="text-3xl font-titlefont font-semibold text-center text-white py-5 ">Login</h2>
+                      </div>
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 p-4">
+                      <label class="font-medium text-gray-800">Email</label>
+                      <input type="email" class="w-full outline-none rounded font-sans bg-gray-100 p-2 mt-2 mb-3" placeholder="example@gmail.com" />
+                      <label class="font-medium text-gray-800">Password</label>
+                      <input type="password" class="w-full outline-none rounded font-sans bg-gray-100 p-2 mt-2 mb-3" placeholder="password" />
+                    </div>
+                  </div>
+                    <div class="bg-gray-200 px-4 py-3 text-right">
+                      <button type="button" class="py-2 px-4 bg-gray-500 text-base font-sans text-white rounded-lg hover:bg-gray-700 mr-2" onclick="toggleModal()"><i class="fas fa-times"></i> Cancel</button>
+                      <button type="button" class="py-2 px-4 bg-button text-base font-sans text-white rounded-lg hover:bg-white hover:text-button mr-2"><i class="fas fa-plus"></i> Login</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
               
               <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100" aria-controls="navbar-sticky" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
@@ -49,8 +81,9 @@
                 </svg>
             </button>
           </div>
+          
           <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-            <ul class="flex flex-col p-4 md:p-0 mt-4 md:text-lg border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
+            <ul class="flex flex-col p-4 md:p-0 mt-4 md:text-base border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
               <li>
                 <a href="#" class="block py-2 px-3 text-white bg-button rounded md:bg-transparent md:text-button hover:md:text-button md:p-0" aria-current="page">Home</a>
               </li>
@@ -110,18 +143,21 @@
                   <p class="text-xs lg:text-base px-3 md:text-base font-sans text-center text-[#FFF]">There are many variations of passages of Lorem Ipsum available, but the majority
                     <br>
                     have suffered alteration in some form, by injected humour.</p>
-                    <div class="md:flex gap-6 md:justify-center md:items-center p-4 space-y-3 text-center">
+                    <div class="md:flex gap-6 justify-center items-center p-4 space-y-0 text-center">
                       <input class=" h-12 rounded-xl bg-white text-base border-0 shadow-lg" type="search" name="search" id="" placeholder="search your service ">
-                      <button class="w-36 h-12 rounded-xl bg-button text-white text-lg">Search</button>
+                      <button class="w-28 h-12 rounded-xl bg-button font-sans text-white text-lg">Search</button>
                     </div>
               </div>
             </div>
           </div>
-        </div>
-        
+        </div> 
     </header>
 
-
+    <script>
+      function toggleModal() { 
+        document.getElementById('modal').classList.toggle('hidden')
+        }
+    </script>
     <!-- flowbite js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
